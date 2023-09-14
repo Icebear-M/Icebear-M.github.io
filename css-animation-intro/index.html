@@ -15,7 +15,7 @@
         }
       }
 
-      @keyframes colorChange {
+      @keyframes colorChange {         /*The second element will change the colours and rotate*/
         0% {
           background-color: brown;
           transform: rotate(0deg);
@@ -38,7 +38,7 @@
         }
       }
 
-      @keyframes runAndFade {
+      @keyframes runAndFade {                  /*The third element will run and fade out*/
         0% {
           transform: translateX(0);
           opacity: 1;
@@ -46,6 +46,15 @@
         100% {
           transform: translateX(100%);
           opacity: 0;
+        }
+      }
+
+      @keyframes fade-in {                     /*The third element will fade in first when you refresh the page*/
+        0%{
+          opacity: 0;
+        }
+        100%{
+          opacity: 1;
         }
       }
 
@@ -60,9 +69,14 @@
         cursor:pointer;
       }
 
+      #element3 {
+        animation: fade-in 0.5s ease-in-out 0.5s backwards;
+      }
+
       #element3:hover {
         /* Add element 3 animations here */
         animation: runAndFade 3s linear forwards;
+        background: darksalmon
       }
 
       .animated-element {
@@ -93,7 +107,7 @@
 
     <div class="animated-element" id="element2">Click and Hold, watch me!</div>
 
-    <div class="animated-element" id="element3">Hover and Hold, I will run away!</div>
+    <div class="animated-element" id="element3">Hover and Stay, I will run away!</div>
 
     <!-- You can add more elements here -->
 
