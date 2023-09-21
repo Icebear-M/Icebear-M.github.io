@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Loading Animation</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* This centers vertically */
+        perspective: 1000px; /* Adjust the perspective depth */
+      }
+
+      .dot {
+        /* animation: rotate-dot 10s linear 0s infinite; */
+      }
+      .animated-element {
+        width: 20px;
+        height: 20px;
+        background-color: rosybrown;
+        border-radius: 50%;
+        position: absolute;
+        animation: loading 2s ease-in-out 0s infinite;
+        opacity: 0%;
+      }
+
+      .animated-element:nth-child(1) {
+        animation-delay: 0s;
+        
+      }
+      .animated-element:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .animated-element:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .animated-element:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      .animated-element:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      .animated-element:nth-child(6) {
+        animation-delay: 1s;
+      }
+      .animated-element:nth-child(7) {
+        animation-delay: 1.2s;
+      }
+
+      @keyframes loading{
+        0% {
+          opacity: 100%;
+          transform: rotateZ(0deg) translateX(80px);
+          background-color: bisque;
+        }
+        50% {
+          opacity: 60%;
+          transform: rotateZ(180deg) translateX(80px);
+          background-color: aquamarine;
+        }
+        60% {
+          opacity: 30%;
+        }
+        100% {
+          opacity: 100%;
+          transform: rotateZ(360deg) translateX(80px);
+          background-color: salmon;
+        }
+      }
+      
+      @keyframes rotate-dot{
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Loading Animation</h1>
+    <div class="container">
+      <div class="dot"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+        <div class="animated-element"></div>
+    </div>
+  </body>
+</html>
