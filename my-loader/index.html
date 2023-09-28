@@ -33,6 +33,7 @@
           0%{
             transform: rotateX(-10deg) rotateY(0deg);
           }
+          
           100%{
             transform: rotateX(-10deg) rotateY(360deg);
           }
@@ -132,7 +133,7 @@
           }
         }
 
-        .box{
+/*        .box{
           position: absolute;
           width: 30px;
           height: 30px;
@@ -166,8 +167,34 @@
           background: linear-gradient(black, rgb(135, 227, 135));
           opacity: 0.8;
           transform: rotateY(calc(90deg * var(--n))) translateZ(15px);
+        }*/
+
+        section i{
+          position: absolute;
+          background: white;
+          border-radius: 50%;
+          z-index: -3;
+          box-shadow: 0 0 10px white,
+          0 0 20px white,
+          0 0 40px white,
+          0 0 80px white;
+          animation: blinking linear infinite;
         }
 
+        @keyframes blinking{
+          0%{
+            opacity: 0;
+          }
+          10%{
+            opacity: 1;
+          }
+          90%{
+            opacity: 1;
+          }
+          100%{
+            opacity: 0;
+          }
+        }
       </style>
   </head>
   <body>
@@ -200,14 +227,45 @@
       </div>
     </div>
 
-    <div class="box">
+    <!--<div class="box">
       <div>
         <span style="--n:0;"></span>
         <span style="--n:1;"></span>
         <span style="--n:2;"></span>
         <span style="--n:3;"></span>
       </div>
-    </div>
+    </div>-->
 
+    <section>
+
+    </section>
+    <script>
+      function stars(){
+        const count = 200;
+        const section = document.querySelector('section');
+        var i = 0;
+
+        while (i < count){
+          const star = document.createElement('i');
+          const x = Math.floor(Math.random() * window.innerWidth);
+          const y = Math.floor(Math.random() * window.innerHeight);
+
+          const size = Math.random() * 4;
+          star.style.left = x+'px';
+          star.style.top = y+'px';
+          star.style.width = 1+size+'px';
+          star.style.height = 1+size+'px';
+
+          const duration= Math.random() * 2;
+
+          star.style.animationDuration = 2+duration+'s'
+          star.style.animationDaley = duration+'s'
+ 
+          section.appendChild(star);
+          i++;
+        }
+      }
+      stars();
+     </script>
   </body>
 </html>
