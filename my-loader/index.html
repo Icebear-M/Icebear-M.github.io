@@ -239,33 +239,57 @@
     <section>
 
     </section>
+
     <script>
-      function stars(){
+      function stars() {
         const count = 200;
         const section = document.querySelector('section');
-        var i = 0;
-
-        while (i < count){
+        let starsArray = []; // Create an array to store star elements.
+        
+        // Function to create a star element.
+        function createStar() {
           const star = document.createElement('i');
           const x = Math.floor(Math.random() * window.innerWidth);
           const y = Math.floor(Math.random() * window.innerHeight);
-
           const size = Math.random() * 4;
-          star.style.left = x+'px';
-          star.style.top = y+'px';
-          star.style.width = 1+size+'px';
-          star.style.height = 1+size+'px';
-
-          const duration= Math.random() * 2;
-
-          star.style.animationDuration = 2+duration+'s'
-          star.style.animationDaley = duration+'s'
- 
+          
+          star.style.left = x + 'px';
+          star.style.top = y + 'px';
+          star.style.width = 1 + size + 'px';
+          star.style.height = 1 + size + 'px';
+          
+          const duration = Math.random() * 2;
+          star.style.animationDuration = 2 + duration + 's';
+          star.style.animationDelay = duration + 's';
+          
           section.appendChild(star);
+          starsArray.push(star); // Add the star element to the array.
+        }
+
+        // Function to update star positions on window resize.
+        function updateStarPositions() {
+          for (const star of starsArray) {
+            const x = Math.floor(Math.random() * window.innerWidth);
+            const y = Math.floor(Math.random() * window.innerHeight);
+            star.style.left = x + 'px';
+            star.style.top = y + 'px';
+          }
+        }
+
+        // Create stars initially.
+        let i = 0;
+        while (i < count) {
+          createStar();
           i++;
         }
+
+        // Add an event listener to update star positions on window resize.
+        window.addEventListener('resize', updateStarPositions);
       }
-      stars();
+
+      stars(); // Start generating stars.
+
+
      </script>
   </body>
 </html>
