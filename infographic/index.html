@@ -88,6 +88,24 @@
           transition: transform 0.3s 0.1s ease-in-out;
       }
 
+      /*JS scroll to view*/
+      #bar-04 {
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease-in-out;
+          transform-box: fill-box;
+      }
+
+      #shadow-04 {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+      }
+
+      #arrows-04 {
+          transform: translateX(-20px);
+          transition: transform 0.3s 0.1s ease-in-out;
+      }
+
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -114,6 +132,43 @@
                 arrows03.style.transitionDelay = '0.1s';
             }
         });
+      });
+
+      // JavaScript to trigger animation for data-04 when it's scrolled into view
+      document.addEventListener("DOMContentLoaded", function() {
+        const data04 = document.getElementById('data-04');
+        const bar04 = document.getElementById('bar-04');
+        const shadow04 = document.getElementById('shadow-04');
+        const arrows04 = document.getElementById('arrows-04');
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5, 
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Element is in view, trigger the animation
+                    bar04.style.transform = 'scaleX(1)';
+                    bar04.style.transformOrigin = 'left'
+                    shadow04.style.opacity = '0.5';
+                    arrows04.style.transform = 'translateX(0)';
+                    arrows04.style.transitionDelay = '0.1s';
+                } else {
+                    // Element is out of view, reset the animation
+                    bar04.style.transform = 'scaleX(0)';
+                    bar04.style.transformOrigin = 'left'
+                    shadow04.style.opacity = '0';
+                    arrows04.style.transform = 'translateX(-20px)';
+                    arrows04.style.transitionDelay = '0s';
+                }
+            });
+        }, options);
+
+        // Start observing the data-04 element
+        observer.observe(data04);
       });
     </script>
 
