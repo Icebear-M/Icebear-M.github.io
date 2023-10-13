@@ -1,0 +1,193 @@
+$patterns: (
+  (
+    (0, 0, 1, 0), 
+    (0, 1, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 0, 1, 0), 
+    (0, 1, 0, 0), 
+    (1, 0, 0, 0), 
+    (1, 1, 1, 1), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (0, 0, 0, 1), 
+    (0, 1, 1, 0), 
+    (0, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  ), 
+  (
+    (1, 0, 0, 0), 
+    (1, 0, 1, 0), 
+    (1, 0, 1, 0), 
+    (1, 1, 1, 1), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+  ), 
+  (
+    (1, 1, 1, 1), 
+    (1, 0, 0, 0), 
+    (1, 0, 0, 0), 
+    (1, 1, 1, 0), 
+    (0, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 0), 
+    (1, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  ), 
+  (
+    (1, 1, 1, 1), 
+    (1, 0, 0, 1), 
+    (0, 0, 0, 1), 
+    (0, 0, 1, 0), 
+    (0, 0, 1, 0), 
+    (0, 1, 0, 0), 
+    (0, 1, 0, 0), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 1), 
+    (0, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  ), 
+  (
+    (0, 1, 1, 0), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (1, 0, 0, 1), 
+    (0, 1, 1, 0), 
+  )  
+);
+
+$nums: 10;
+$pattern-vals: (1,2,3,4,5,6,7,8,9,0);
+
+@each $p in $patterns {
+  $index-p: index($patterns, $p);
+  $val: nth($pattern-vals, $index-p);
+  $sel: "";
+  @for $i from 1 through $nums {
+    @for $r from 1 through 7 {
+      $map-r: nth($p, $r);
+      @for $c from 1 through 4 {
+        $map-c: nth($map-r, $c);
+        $sel: $sel + "#i#{$i}#{$r}#{$c}";
+        @if $map-c == 0 {
+          $sel: $sel + ":not(:checked) ~";
+        } @else {
+          $sel: $sel + ":checked ~";
+        }
+      }
+    }
+    $sel: $sel + "section #o#{$i}::after,";
+  }
+  #{$sel} {
+    content: "#{$val}";    
+  }
+}
+
+
+
+
+$di: 15px;
+$active: #FFF;
+$inactive: #666;
+@each $p in $patterns {
+  $shad: "";
+  $index-p: index($patterns, $p);
+  @for $r from 1 through 7 {
+    $map-r: nth($p, $r);
+    @for $c from 1 through 4 {
+      $map-c: nth($map-r, $c);
+      $x: ($c - 1) * $di;
+      $y: ($r - 1) * $di;
+      $shad: $shad + "#{$x} #{$y} 0px 0px ";
+      @if $map-c == 0 {
+        $shad: $shad + $inactive;
+      } @else {
+        $shad: $shad + $active;
+      }
+      @if $c + $r != 11 {
+        $shad: $shad + ", ";
+      }
+    }
+  }
+  $first: nth(nth($p, 1), 1);
+  @if $first == 1 {
+    aside div:nth-child(#{$index-p}) { background: $active; } 
+  } @else {
+    aside div:nth-child(#{$index-p}) { background: $inactive; }
+  }
+  aside div:nth-child(#{$index-p}) {
+    box-shadow: #{$shad};
+  }
+}
+
+body {
+  padding-right: $di * 6;
+  padding-left: $di;
+  min-width: 1000px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #222;  
+  h1 { margin-top: 4rem; }
+}
+
+aside {
+  position: fixed;
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  padding: $di;
+  box-sizing: border-box;
+  width: $di * 6;
+  overflow: auto;
+  background: #222;
+}
+aside div {
+  height: $di * 0.8;
+  width: $di * 0.8;
+  display: block;
+  margin-bottom: $di * 7;
+}
+
+section span {
+  font-weight: bold;
+  font-size: 3rem;
+  &::after { content: "_"; }
+  &:nth-of-type(1)::before { content: "("; }
+  &:nth-of-type(4)::before { content: ") "; }
+  &:nth-of-type(7)::before { content: "-"; }
+}
