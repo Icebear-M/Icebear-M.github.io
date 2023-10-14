@@ -105,11 +105,29 @@
           transform: translateX(-20px);
           transition: transform 0.3s 0.1s ease-in-out;
       }
+
+       /*JS Keyup and Keydown*/
+      #bar-05 {
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease-in-out;
+          transform-box: fill-box;
+      }
+
+      #shadow-05 {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+      }
+
+      #arrows-05 {
+          transform: translateX(-20px);
+          transition: transform 0.3s 0.1s ease-in-out;
+      }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-      // JavaScript to toggle animation for data-03
+      //JavaScript to toggle animation for data-03
       $(document).ready(function() {
         const data03 = document.getElementById('data-03');
         const bar03 = document.getElementById('bar-03');
@@ -117,6 +135,7 @@
         const arrows03 = document.getElementById('arrows-03');
 
         data03.addEventListener('click', () => {
+          event.stopPropagation();
             if (bar03.style.transform == 'scaleX(1)') {
                 bar03.style.transform = 'scaleX(0)';
                 bar03.style.transformOrigin = 'left'
@@ -133,46 +152,75 @@
         });
       });
 
-      // JavaScript to trigger animation for data-04 when it's scrolled into view
-      document.addEventListener("DOMContentLoaded", function() {
-        const data04 = document.getElementById('data-04');
-        const bar04 = document.getElementById('bar-04');
-        const shadow04 = document.getElementById('shadow-04');
-        const arrows04 = document.getElementById('arrows-04');
+      //JavaScript to toggle animation for data-04
+      window.addEventListener("scroll", function() {
+          const data04 = document.getElementById('data-04');
+          const bar04 = document.getElementById('bar-04');
+          const shadow04 = document.getElementById('shadow-04');
+          const arrows04 = document.getElementById('arrows-04');
 
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5, 
-        };
+          const rect = data04.getBoundingClientRect();
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Element is in view, trigger the animation
-                    bar04.style.transform = 'scaleX(1)';
-                    bar04.style.transformOrigin = 'left'
-                    shadow04.style.opacity = '0.5';
-                    arrows04.style.transform = 'translateX(0)';
-                    arrows04.style.transitionDelay = '0.1s';
-                } else {
-                    // Element is out of view, reset the animation
-                    bar04.style.transform = 'scaleX(0)';
-                    bar04.style.transformOrigin = 'left'
-                    shadow04.style.opacity = '0';
-                    arrows04.style.transform = 'translateX(-20px)';
-                    arrows04.style.transitionDelay = '0s';
-                }
-            });
-        }, options);
+          if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+              // Element is in view, trigger the animation
+              bar04.style.transform = 'scaleX(1)';
+              bar04.style.transformOrigin = 'left';
+              bar04.style.transformBox = 'fill-box';
 
-        // Start observing the data-04 element
-        observer.observe(data04);
+              shadow04.style.opacity = '0.5';
+
+              arrows04.style.transform = 'translateX(0)';
+              arrows04.style.transitionDelay = '0.1s';
+          } else {
+              // Element is out of view, reset the animation
+              bar04.style.transform = 'scaleX(0)';
+              bar04.style.transformOrigin = 'left';
+              bar04.style.transformBox = 'fill-box';
+
+              shadow04.style.opacity = '0';
+
+              arrows04.style.transform = 'translateX(-20px)';
+              arrows04.style.transitionDelay = '0s';
+          }
       });
+
+      //JavaScript to toggle animation for data-05
+      window.addEventListener("DOMContentLoaded", function() {
+        const data05 = document.getElementById('data-05');
+        const bar05 = document.getElementById('bar-05');
+        const shadow05 = document.getElementById('shadow-05');
+        const arrows05 = document.getElementById('arrows-05');
+
+        window.addEventListener("keydown", function() {
+            bar05.style.transform = 'scaleX(1)';
+            bar05.style.transformOrigin = 'left';
+            bar05.style.transformBox = 'fill-box';
+
+            shadow05.style.opacity = '0.5';
+
+            arrows05.style.transform = 'translateX(0)';
+            arrows05.style.transitionDelay = '0.1s';
+          
+        });
+
+        window.addEventListener("keyup", function(){   
+            bar05.style.transform = 'scaleX(0)';
+            bar05.style.transformOrigin = 'left';
+            bar05.style.transformBox = 'fill-box';
+
+            shadow05.style.opacity = '0';
+
+            arrows05.style.transform = 'translateX(-20px)';
+            arrows05.style.transitionDelay = '0s';
+          
+        });
+      });
+
     </script>
   </head>
-  
+
   <body>
+    <h2>For the last animation: Press any key on the keyboard and hold it to make the animation happen</h2>
     <div class="container">
       <?xml version="1.0" encoding="utf-8"?>
       <!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -770,7 +818,7 @@
           <path class="st1" d="M69.31,525.12c0,0.64,0.52,1.16,1.16,1.16c0.64,0,1.16-0.52,1.16-1.16c0-0.64-0.52-1.16-1.16-1.16
             C69.83,523.96,69.31,524.48,69.31,525.12z"/>
           <path class="st1" d="M56.83,525.12c0,0.64,0.52,1.16,1.16,1.16c0.64,0,1.16-0.52,1.16-1.16c0-0.64-0.52-1.16-1.16-1.16
-            C57.35,523.96,56.83,524.48,56.83,525.12z"/>
+            C57.35,523.96,56.83,524.48,56.83,525.12z"/> 
         </g>
       </g>
       <g id="data-04">
@@ -2845,7 +2893,6 @@
         </g>
       </g>
       </svg>
-      
       </div>
     </div>
   </body>
