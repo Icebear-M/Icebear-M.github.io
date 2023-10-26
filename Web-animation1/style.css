@@ -45,7 +45,7 @@ svg{
 }
 
 h1{
-  top: 1300px;
+  top: 140%;
   right: 35%;
   position: absolute;
   font-family: 'Futura', sans-serif;
@@ -151,7 +151,7 @@ a {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 1500px; /* Center vertically */
+  top: 160%; /* Center vertically */
   right: 0; /* Initial position outside the screen on the right */
   animation: slideLeft 7.5s linear infinite; /* Adjust the duration as needed */
   margin-left: 2rem;
@@ -165,7 +165,7 @@ a {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 1500px; /* Center vertically */
+  top: 160%; /* Center vertically */
   right: 0; /* Initial position outside the screen on the right */
   animation: slideLeft 7.5s linear infinite; /* Adjust the duration as needed */
   animation-delay: 1.5s;
@@ -178,7 +178,7 @@ a {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 1500px; /* Center vertically */
+  top: 160%; /* Center vertically */
   right: 0; /* Initial position outside the screen on the right */
   animation: slideLeft 7.5s linear infinite; /* Adjust the duration as needed */
   animation-delay: 3s;
@@ -192,7 +192,7 @@ a {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 1500px; /* Center vertically */
+  top: 160%; /* Center vertically */
   right: 0; /* Initial position outside the screen on the right */
   animation: slideLeft 7.5s linear infinite; /* Adjust the duration as needed */
   animation-delay: 4.5s;
@@ -205,7 +205,7 @@ a {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 1500px; /* Center vertically */
+  top: 160%; /* Center vertically */
   right: 0; /* Initial position outside the screen on the right */
   animation: slideLeft 7.5s linear infinite; /* Adjust the duration as needed */
   animation-delay: 6s;
@@ -228,6 +228,6 @@ a {
   width: 2000px; /* Adjust the width as needed */
   height: 700px; /* Adjust the height as needed */
   background-color: white;
-  top: 100px;
+  top: 170%;
   overflow: hidden;
 }

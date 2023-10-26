@@ -67,6 +67,7 @@
             });
         } -->
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         window.addEventListener("scroll", function() {
           const wSquare = document.getElementById('whiteSquare');
@@ -87,25 +88,35 @@
           }
       });
 
-      const imageSlides = document.querySelectorAll('.image-slide');
+      $(document).ready(function() {
+        const imageSlides = document.querySelectorAll('.image-slide');
+
+        // Store the animation state for all slides
+        let animationStates = {};
 
         imageSlides.forEach((imageSlide) => {
             imageSlide.addEventListener('mouseover', () => {
-                // Pause the animation of the hovered image
-                imageSlide.style.animationPlayState = 'paused';
+                // Pause the animation for all image slides
+                imageSlides.forEach((slide) => {
+                    animationStates[slide.id] = slide.style.animationPlayState;
+                    slide.style.animationPlayState = 'paused';
+                });
 
                 // Enlarge the hovered image
                 imageSlide.style.transform = 'scale(1.2)';
             });
 
             imageSlide.addEventListener('mouseout', () => {
-                // Resume the animation of the hovered image
-                imageSlide.style.animationPlayState = 'running';
+                // Resume the animation for all image slides
+                imageSlides.forEach((slide) => {
+                    slide.style.animationPlayState = animationStates[slide.id];
+                });
 
                 // Shrink the image back to its original size
                 imageSlide.style.transform = 'scale(1)';
             });
         });
+    });
     </script>    
 </head>
 <body>
