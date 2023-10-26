@@ -82,11 +82,9 @@ h1{
 }
 
 .navbar a:hover{
-  font-size: 2rem;
-  color: #fdd48e;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 2rem;
+  
+  color: #ffc155;
+  
 }
 
 .icons{
