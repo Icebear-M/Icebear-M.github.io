@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>After Effects Hero Video</title>
+
+    <!-- Styles for the hero section and navigation bar -->
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Arial", sans-serif; /* Choose your preferred font */
+      }
+
+      #hero-section {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #hero-video {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+        position: fixed;
+        z-index: -1;
+      }
+
+      #hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        z-index: 1;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Adjust the background color and opacity as needed */
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for depth */
+        z-index: 2;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        backdrop-filter: blur(5px);
+      }
+      #navbar h2 {
+        margin-left: 15px;
+      }
+
+      #navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 25px;
+      }
+
+      /* Add more styling for your content sections */
+      .content-section {
+        padding: 50px;
+        background: #f4f4f4; /* Adjust background color as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+      <div>
+        <h2>TU Web Animation 2023</h2>
+      </div>
+      <div>
+        <a href="#">Home</a>
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <!-- Add more navigation links as needed -->
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero-section">
+      <video id="hero-video" autoplay loop muted>
+        <!-- Change the video url here -->
+        <source src="main.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div id="hero-content">
+        <h1>Your Hero Title</h1>
+        <p>Your Hero Subtitle or Call-to-Action</p>
+      </div>
+    </section>
+
+    <!-- Section 1 -->
+    <div id="section1" class="content-section">
+      <h2>Section 1 Title</h2>
+      <p>Your content for Section 1 goes here.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="section2" class="content-section">
+      <h2>Section 2 Title</h2>
+      <p>Your content for Section 2 goes here.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div id="section3" class="content-section">
+      <h2>Section 3 Title</h2>
+      <p>Your content for Section 3 goes here.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div id="section4" class="content-section">
+      <h2>Section 4 Title</h2>
+      <p>Your content for Section 4 goes here.</p>
+    </div>
+
+    <!-- Add more sections as needed -->
+  </body>
+</html>

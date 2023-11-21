@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame By Frame Animation</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* This centers vertically */
+        perspective: 1000px; /* Adjust the perspective depth */
+      }
+      .animation{
+        background-image: url(image.jpeg);
+        width: 200px;
+        height: 170px;
+        animation: frames;
+        animation-duration: 1s; 
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(10);
+      }
+      @keyframes frames{
+        from{
+          background-position: 0px;
+        }
+        to{
+          background-position: -2000px;
+          /* offset-distance: 100%; */
+        }
+        /* create a rectangle and make it into a clipping mask (command+7), and animate the rectangle. */
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Frame By Frame Animation</h1>
+    <div class="container">
+        <div class="animation"></div>
+    </div>
+  </body>
+</html>
