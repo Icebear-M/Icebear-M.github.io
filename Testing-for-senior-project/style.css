@@ -56,3 +56,38 @@ header{
     background: white;
     color: #162938;
 }
+
+.instruction{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popIns{
+    width: 100%;
+    padding: 40px;
+}
+.h2{
+    font-size: 4em;
+    color: rgb(181, 131, 131);
+    text-align: center;
+}
+
+.btnInstruction-popup{
+    width: 100%;
+    height: 45px;
+    background: rgb(255, 234, 199);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: 500;
+}
