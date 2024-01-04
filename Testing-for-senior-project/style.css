@@ -38,6 +38,7 @@ header{
 .navigation button{
     position: relative;
     margin-left: 40px;
+    margin-top: 10px;
     width: 130px;
     height: 50px;
     background: transparent;
