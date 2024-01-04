@@ -22,7 +22,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 20px;
+    padding: 20px 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,11 +33,12 @@ header{
     font-size: 2em;
     color: white;
     user-select: none;
+    padding: 10px 20px;
 }
 
 .navigation button{
     position: relative;
-    margin-left: 40px;
+    margin-left: 30px;
     margin-top: 10px;
     width: 130px;
     height: 50px;
