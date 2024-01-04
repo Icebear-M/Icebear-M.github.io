@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #player {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .obstacle {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="player"></div>
+  </div>
+
+  <script>
+    const player = document.getElementById('player');
+    const gameContainer = document.getElementById('game-container');
+    let score = 0;
+
+    // Set initial player position in pixels
+    let playerTop = 50;
+    let playerLeft = 50;
+
+    player.style.top = `${playerTop}px`;
+    player.style.left = `${playerLeft}px`;
+
+    // Create initial obstacle
+    createObstacle();
+
+    // Event listener for arrow key controls
+    document.addEventListener('keydown', movePlayer);
+
+    function movePlayer(e) {
+      const speed = 10;
+
+      switch (e.key) {
+        case 'ArrowUp':
+          playerTop -= speed;
+          break;
+        case 'ArrowDown':
+          playerTop += speed;
+          break;
+        case 'ArrowLeft':
+          playerLeft -= speed;
+          break;
+        case 'ArrowRight':
+          playerLeft += speed;
+          break;
+      }
+
+      // Update player position
+      player.style.top = `${playerTop}px`;
+      player.style.left = `${playerLeft}px`;
+
+      // Check for collision with obstacle
+      if (checkCollision()) {
+        score++;
+        createObstacle();
+      }
+    }
+
+    function createObstacle() {
+      const obstacle = document.createElement('div');
+      obstacle.classList.add('obstacle');
+      gameContainer.appendChild(obstacle);
+
+      // Set a random position for the new red box
+      const maxX = gameContainer.clientWidth - obstacle.clientWidth;
+      const maxY = gameContainer.clientHeight - obstacle.clientHeight;
+
+      const randomY = Math.floor(Math.random() * maxY);
+
+      // Attach the red box to the right side of the green box with a gap
+      obstacle.style.left = `${playerLeft + player.clientWidth + 10}px`;
+      obstacle.style.top = `${randomY}px`;
+    }
+
+    function checkCollision() {
+      const playerRect = player.getBoundingClientRect();
+      const obstacles = document.querySelectorAll('.obstacle');
+
+      for (const obstacle of obstacles) {
+        const obstacleRect = obstacle.getBoundingClientRect();
+
+        if (
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top &&
+          playerRect.left < obstacleRect.right &&
+          playerRect.right > obstacleRect.left
+        ) {
+          // Collision detected
+          gameContainer.removeChild(obstacle);
+          return true;
+        }
+      }
+
+      return false;
+    }
+  </script>
+</body>
+</html>
