@@ -33,17 +33,16 @@ header{
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-
 }
 
 .logo{
-    width: 300px;
+    width: 250px;
     display: flex;
     align-items: center;
 }
 
 .sheepLogo{
-    width: 150px;
+    width: 100px;
     height: auto;
     margin: 0;
     border: 0;
@@ -79,7 +78,7 @@ header{
 
 @media screen and (min-width: 600px) {
     .pause  {
-        width: 80px; /* Adjust the width as needed */
+        width: 70px; /* Adjust the width as needed */
     }
 }
 .pause:hover{
@@ -89,7 +88,7 @@ header{
 .help{
     width: 45px;
     height: auto;
-    margin: 0;
+    margin-left: 10px;
     border: 0;
     padding: 10px;
     transition: transform 0.5s ease;
@@ -97,7 +96,7 @@ header{
 
 @media screen and (min-width: 600px) {
     .help  {
-        width: 80px; /* Adjust the width as needed */
+        width: 70px; /* Adjust the width as needed */
     }
 }
 
@@ -108,7 +107,7 @@ header{
 .exit{
     width: 45px;
     height: auto;
-    margin: 0;
+    margin-left: 10px;
     border: 0;
     padding: 10px;
     transition: transform 0.5s ease;
@@ -116,7 +115,7 @@ header{
 
 @media screen and (min-width: 600px) {
     .exit  {
-        width: 80px; /* Adjust the width as needed */
+        width: 70px; /* Adjust the width as needed */
     }
 }
 
