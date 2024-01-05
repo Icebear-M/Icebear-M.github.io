@@ -44,6 +44,7 @@ header{
     color: white;
     user-select: none;
     padding: 10px 5px;
+    text-align: right;
     /* margin-left: -50px; */
 }
 
