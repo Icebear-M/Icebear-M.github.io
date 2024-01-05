@@ -15,8 +15,9 @@ body{
     background: url('background.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-
+    transition: opacity 0.5s ease-in-out;
 }
+
 header{
     position: fixed;
     top: 0;
@@ -29,11 +30,18 @@ header{
     z-index: 99;
 }
 
+.sheepLogo{
+    max-width: 15%;
+    height: auto;
+    margin-right: -50px;
+}
+
 .title{
     font-size: 2em;
     color: white;
     user-select: none;
-    padding: 10px 20px;
+    padding: 10px 0px;
+    margin-left: -50px;
 }
 
 .navigation button{
@@ -75,9 +83,19 @@ header{
     width: 100%;
     padding: 40px;
 }
-.h2{
-    font-size: 4em;
-    color: rgb(181, 131, 131);
+.welcomeText{
+    font-size: 2.5em;
+    color: rgb(160, 103, 103);
+    text-align: center;
+    text-shadow: 3px 3px 5px #feeded, -3px -3px 5px #feeded, 3px -3px 5px #feeded, -3px 3px 5px #feeded;
+}
+.ins{
+    font-size: 1.4em;
+    text-align: center;
+}
+.fun{
+    font-size: 1.6em;
+    color: rgb(209, 220, 169);
     text-align: center;
 }
 

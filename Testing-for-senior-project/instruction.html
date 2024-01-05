@@ -10,18 +10,22 @@
 <body>  
     <div class="instruction">
       <div class="popIns">
-        <h2>Welcome to the Sheep and Shepherd Game!</h2>
-        <h3>To win this game, you need to find all the lost sheep that has the word of the verse on them, find the word in order.</h3>
+        <h2 class="welcomeText">Welcome to the Sheep and Shepherd Game!</h2>
+        <h3 class="ins">To win this game, you need to find all the lost sheep that has the word of the verse on them, find the word in order.</h3>
         <br>
-        <h3>Now! Help the shepherd to find all his lost sheep!</h3>
+        <h3 class="fun">Now! Help the shepherd to find all his lost sheep!</h3>
+        <br>
         <button class="btnInstruction-popup" onclick="redirectToAnotherPage()">Play Game</button>
       </div>
     </div>
 
     <script>
       function redirectToAnotherPage() {
+        document.body.style.opacity = '0';
+        setTimeout(function() {
           // Replace 'your_destination_url' with the URL of the webpage you want to redirect to
           window.location.href = 'WelcomePage.html';
+        }, 500);
       }
   </script>
 </body>
