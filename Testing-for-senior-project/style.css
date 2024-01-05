@@ -30,6 +30,12 @@ header{
     z-index: 99;
 }
 
+.logo{
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
 .sheepLogo{
     width: 150px;
     height: auto;
@@ -40,18 +46,26 @@ header{
 }
 
 .title{
+    width: 100px;
     font-size: 2em;
     color: white;
     user-select: none;
     padding: 10px 5px;
     text-align: right;
+
     /* margin-left: -50px; */
+}
+.navigation{
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .navigation button{
     position: relative;
     margin-left: 30px;
-    margin-right: -30px;
+    /* margin-right: -30px; */
     margin-top: 10px;
     width: 130px;
     height: 50px;
@@ -65,6 +79,23 @@ header{
     font-weight: 500;
     transition: .5s;
     padding: 0px -10px;
+}
+
+@media screen and (max-width: 600px) {
+    .navigation button {
+        width: 100px; /* Adjust the width as needed */
+        font-size: 1em; /* Adjust the font size as needed */
+        margin-left: 15px; /* Adjust the margin as needed */
+    }
+    .logo{
+        width: 200px; /* Adjust the width as needed */
+    }
+    .title{
+        font-size: 1.5em;
+    }
+    .sheepLogo{
+        width:100px;
+    }
 }
 
 .navigation button:hover{
