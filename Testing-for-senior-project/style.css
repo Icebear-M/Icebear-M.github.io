@@ -60,6 +60,7 @@ header{
     color: white;
     font-weight: 500;
     transition: .5s;
+    padding: 0px -10px;
 }
 
 .navigation button:hover{
