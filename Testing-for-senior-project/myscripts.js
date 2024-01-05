@@ -15,3 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function startGame() {
+    // Hide the instruction div
+    document.querySelector('.instruction').style.display = 'none';
+    
+    // Show the rest of the body content
+    document.querySelector('.whole').style.display = 'block';
+}

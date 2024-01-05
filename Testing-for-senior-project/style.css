@@ -18,6 +18,10 @@ body{
     transition: opacity 0.5s ease-in-out;
 }
 
+.whole{
+    display: none;
+}
+
 header{
     position: fixed;
     top: 0;
@@ -171,6 +175,7 @@ h3{
     }
 }
 
+/* this is the instruction page */
 .instruction{
     position: relative;
     width: 400px;
@@ -214,4 +219,9 @@ h3{
     cursor: pointer;
     font-size: 2em;
     font-weight: 500;
+    transition: transform 0.5s ease;
+}
+
+.btnInstruction-popup:hover{
+    transform: scale(1.2);
 }

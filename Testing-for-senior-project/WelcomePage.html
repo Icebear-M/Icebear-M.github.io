@@ -8,31 +8,44 @@
   <script src="myscripts.js"></script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <!-- <h2 class="title">Sheep<br> and<br> Shepherd</h2> -->
-      <img class="sheepLogo" src="sheep.PNG" alt="sheep-logo"/>
+  <div class="whole">
+    <header>
+      <div class="logo">
+        <!-- <h2 class="title">Sheep<br> and<br> Shepherd</h2> -->
+        <img class="sheepLogo" src="sheep.PNG" alt="sheep-logo"/>
+      </div>
+      <nav class="navigation">
+        <img class="pause" src="pauseicon.png" alt="pauseIcon"/>
+        <img class="setting" src="settingicon.png" alt="settingIcon"/>
+        <img class="exit" src="exiticon.png" alt="exitIcon"/>
+      </nav>
+    </header>
+
+    <div class="music">
+      <img class="musicNote" src="musicicon.png" alt="musicNote"/>
+      <audio id = "audio">
+        <source src="Garden.wav">
+      </audio>
     </div>
-    <nav class="navigation">
-      <img class="pause" src="pauseicon.png" alt="pauseIcon"/>
-      <img class="setting" src="settingicon.png" alt="settingIcon"/>
-      <img class="exit" src="exiticon.png" alt="exitIcon"/>
-    </nav>
-  </header>
 
-  <div class="music">
-    <img class="musicNote" src="musicicon.png" alt="musicNote"/>
-    <audio id = "audio">
-      <source src="Garden.wav">
-    </audio>
+    <div class="tracker">
+      <h3>Score:</h3>
+      <h3>Counter:</h3>
+      <h3>Timer:</h3>
+    </div>
   </div>
 
-  <div class="tracker">
-    <h3>Score:</h3>
-    <h3>Counter:</h3>
-    <h3>Timer:</h3>
+  <div class="instruction">
+    <div class="popIns">
+      <h2 class="welcomeText">Welcome to the Sheep and Shepherd Game!</h2>
+      <br>
+      <h3 class="ins">To win this game, you need to find all the lost sheep that has the word of the verse on them, find the word in order.</h3>
+      <br>
+      <h3 class="fun">Now! Help the shepherd to find all his lost sheep!</h3>
+      <br>
+      <button class="btnInstruction-popup" onclick="startGame()">Play Game</button>
+    </div>
   </div>
-    
-  </div>
+
 </body>
 </html>
