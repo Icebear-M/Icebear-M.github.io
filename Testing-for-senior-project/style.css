@@ -135,9 +135,23 @@ header{
     }
 }
 
-.navigation button:hover{
-    background: white;
-    color: #162938;
+.musicNote {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px; /* Adjust the distance from the right */
+    animation: moveUpDown 2s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* Start and end position (no vertical movement) */
+    }
+    50% {
+        transform: translateY(-20px); /* Middle position (move up by 20 pixels) */
+    }
 }
 
 .instruction{
