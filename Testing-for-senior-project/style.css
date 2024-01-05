@@ -28,6 +28,12 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+
 }
 
 .logo{
@@ -117,25 +123,6 @@ header{
 .exit:hover{
     transform: rotate(360deg) scale(1.2);
 }
-
-
-/* .navigation button{
-    position: relative;
-    margin-left: 30px;
-    margin-top: 10px;
-    width: 130px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid white;
-    outline: none;
-    border-radius: 80px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: white;
-    font-weight: 500;
-    transition: .5s;
-    padding: 0px -10px;
-} */
 
 @media screen and (max-width: 600px) {
     .logo{
