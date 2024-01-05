@@ -30,24 +30,24 @@ header{
     z-index: 99;
 }
 
-/* .sheepLogo{
+.sheepLogo{
     max-width: 15%;
     height: auto;
     margin-right: -50px;
-} */
+}
 
 .title{
     font-size: 2em;
     color: white;
     user-select: none;
     padding: 10px 5px;
-    /* margin-left: -50px; */
+    margin-left: -50px;
 }
 
 .navigation button{
     position: relative;
     /* margin-left: 30px; */
-    margin-right: 0px;
+    /* margin-right: 0px; */
     margin-top: 10px;
     width: 130px;
     height: 50px;
@@ -61,6 +61,19 @@ header{
     font-weight: 500;
     transition: .5s;
     padding: 0px -10px;
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start of the column */
+    }
+
+    .navigation {
+        margin-top: 10px; /* Add some space between title and buttons */
+    }
 }
 
 .navigation button:hover{
