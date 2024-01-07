@@ -16,19 +16,30 @@
       </div>
       <nav class="navigation">
         <img class="pause" src="pauseicon.png" alt="pauseIcon"/>
-        <img class="setting" src="settingicon.png" alt="settingIcon"/>
+        <img class="setting" src="settingicon.png" alt="settingIcon" onclick="showWhiteBoard()"/>
         <img class="exit" src="exiticon.png" alt="exitIcon"/>
       </nav>
     </header>
 
-    <div class="music">
+    <div class="whiteBoard hidden">
+      <div class="whiteBoard-content">
+        <button>Music</button>
+        <button>Sound</button>
+        <button>Languages</button>
+        <button>Credits</button>
+        <button>Legal</button>
+        <button>Customer Servive</button>
+      </div>
+    </div>
+
+    <div class="music hidden">
       <img class="musicNote" src="musicicon.png" alt="musicNote"/>
       <audio id = "audio">
         <source src="Garden.wav">
       </audio>
     </div>
 
-    <div class="tracker">
+    <div class="tracker hidden">
       <h3>Score:</h3>
       <h3>Counter:</h3>
       <h3>Timer:</h3>
