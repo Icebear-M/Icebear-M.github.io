@@ -24,12 +24,7 @@ function startGame() {
 // This controls the setting page pop out
 function showWhiteBoard() {
     const whiteBoard = document.querySelector('.whiteBoard');
-    const music = document.querySelector('.music');
-    const tracker = document.querySelector('.tracker');
 
     whiteBoard.classList.toggle('hidden');
     whiteBoard.style.height = whiteBoard.clientHeight === 0 ?  window.innerHeight + 'px' : '0';
-
-    music.classList.toggle('hidden');
-    tracker.classList.toggle('hidden');
-  }
+}
