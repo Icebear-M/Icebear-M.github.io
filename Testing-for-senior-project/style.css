@@ -102,35 +102,6 @@ header{
     transform: rotate(360deg) scale(1.2);
 }
 
-.whiteBoard{
-    position:fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #feeded;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out;
-    z-index: 20;
-}
-
-.whiteBoard-content{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    height: 100vh
-}
-.white-board-content button {
-    width: 20px;
-    height: auto; 
-}
-
-.hidden {
-    display: none;
-}
-
 /* This is the exit button */
 .exit{
     width: 45px;
@@ -264,7 +235,36 @@ h3{
     transform: scale(1.2);
 }
 
-/* CSS */
+/* This is the setting board */
+.whiteBoard{
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #feeded;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    z-index: 20;
+}
+
+.whiteBoard-content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh
+}
+.white-board-content button {
+    width: 20px;
+    height: auto; 
+}
+
+.hidden {
+    display: none;
+}
+
 .set {
   background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
   border: 0;
@@ -295,4 +295,24 @@ h3{
 
 .set:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.exit1{
+    width: 45px;
+    height: auto;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+@media screen and (min-width: 600px) {
+    .exit1  {
+        width: 70px;
+    }
+}
+
+.exit1:hover{
+    transform: rotate(360deg) scale(1.2);
 }

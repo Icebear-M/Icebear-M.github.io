@@ -24,7 +24,29 @@ function startGame() {
 // This controls the setting page pop out
 function showWhiteBoard() {
     const whiteBoard = document.querySelector('.whiteBoard');
-
     whiteBoard.classList.toggle('hidden');
+  
+    if (whiteBoard.classList.contains('hidden')) {
+      whiteBoard.style.height = '0';
+    } else {
+    //   whiteBoard.style.height = window.innerHeight + 'px';
     whiteBoard.style.height = whiteBoard.clientHeight === 0 ?  window.innerHeight + 'px' : '0';
-}
+    }
+  }
+  
+  function hideWhiteBoard() {
+    const whiteBoard = document.querySelector('.whiteBoard');
+    whiteBoard.classList.add('hidden');
+    whiteBoard.style.height = '0';
+  }
+  
+// function hideWhiteBoard() {
+//     const whiteBoard = document.querySelector('.whiteBoard');
+
+//     whiteBoard.classList.toggle('hidden');
+//     whiteBoard.style.height = '0';
+// }
+
+// const exitButton = document.querySelector('.exit1');
+// exitButton.addEventListener('click', hideWhiteBoard);
+// whiteBoard.style.height = whiteBoard.clientHeight === 0 ?  window.innerHeight + 'px' : '0';
