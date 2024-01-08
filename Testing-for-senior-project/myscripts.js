@@ -34,19 +34,15 @@ function showWhiteBoard() {
     }
   }
   
-  function hideWhiteBoard() {
+function hideWhiteBoard() {
     const whiteBoard = document.querySelector('.whiteBoard');
     whiteBoard.classList.add('hidden');
     whiteBoard.style.height = '0';
-  }
+}
   
-// function hideWhiteBoard() {
-//     const whiteBoard = document.querySelector('.whiteBoard');
+function playClickSound() {
+    const clickSound = new Audio('clicking.wav');
+    clickSound.play();
+}
 
-//     whiteBoard.classList.toggle('hidden');
-//     whiteBoard.style.height = '0';
-// }
-
-// const exitButton = document.querySelector('.exit1');
-// exitButton.addEventListener('click', hideWhiteBoard);
-// whiteBoard.style.height = whiteBoard.clientHeight === 0 ?  window.innerHeight + 'px' : '0';
+  

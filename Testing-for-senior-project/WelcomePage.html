@@ -15,14 +15,14 @@
         <img class="sheepLogo" src="sheep.PNG" alt="sheep-logo"/>
       </div>
       <nav class="navigation">
-        <img class="pause" src="pauseicon.png" alt="pauseIcon"/>
-        <img class="setting" src="settingicon.png" alt="settingIcon" onclick="showWhiteBoard()"/>
-        <img class="exit" src="exiticon.png" alt="exitIcon"/>
+        <img class="pause" src="pauseicon.png" alt="pauseIcon" onclick="playClickSound()"/>
+        <img class="setting" src="settingicon.png" alt="settingIcon" onclick="showWhiteBoard(); playClickSound()"/>
+        <img class="exit" src="exiticon.png" alt="exitIcon" onclick="playClickSound()"/>
       </nav>
     </header>
 
     <div class="whiteBoard hidden">
-      <img class="exit1" src="exiticon.png" alt="exitIcon" onclick="hideWhiteBoard()"/>
+      <img class="exit1" src="exiticon.png" alt="exitIcon" onclick="hideWhiteBoard(); playClickSound()"/>
       <div class="whiteBoard-content">
         <button class="set music">Music</button>
         <button class="set sound">Sound</button>
