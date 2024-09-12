@@ -1,0 +1,614 @@
+/* import the google font */
+@import url("https://fonts.googleapis.com/css?family=Rancho&effect=3d");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rancho', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('cloudbg.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: fixed;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* This is the cloud image slider */
+.slider-background {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.slider > img{
+    position:fixed;
+    /* background-color: rgba(255, 0, 0, calc(75% - (var(--i) * 25%) )); */
+    opacity: calc(85% - (var(--i) * 10%) );
+    top: calc( (100px * var(--i)) - 300px );
+    max-width: 100vw;
+    animation: slide calc(3s * (var(--i) * var(--i)) + 17s) infinite linear;
+    animation-delay: calc(-21s * (var(--i)) );
+}
+
+/* This is the slide animation, from left to right */
+@keyframes slide{
+    0%{
+        transform: translateX(-100vw);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+/* this is the instruction page */
+.instruction{
+    position: relative;
+    width: 400px;
+    /* min-height: 440px; */
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.popIns{
+    width: 100%;
+    padding: 40px;
+}
+
+.welcomeText{
+    font-size: 2.5em;
+    color: rgb(160, 103, 103);
+    text-align: center;
+    text-shadow: 3px 3px 5px #feeded, -3px -3px 5px #feeded, 3px -3px 5px #feeded, -3px 3px 5px #feeded;
+}
+
+/* This is the instruction that tells user how to play the game. */
+.ins{
+    font-size: 1.4em;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px #feeded, -1px -1px 2px #feeded, 1px -1px 2px #feeded, -1px 1px 2px #feeded;
+}
+
+/* This is the text which says "can you find your lost sheep" */
+.fun{
+    font-size: 1.6em;
+    color: rgb(114, 124, 77);
+    text-align: center;
+    text-shadow: 1px 1px 2px #feeded, -1px -1px 2px #feeded, 1px -1px 2px #feeded, -1px 1px 2px #feeded;
+
+}
+
+/* This is the play game button */
+.btnInstruction-popup{
+    width: 100%;
+    height: 45px;
+    background-color: rgb(233, 215, 182);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: 500;
+    transition: background-color 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.btnInstruction-popup:hover{
+    transform: scale(1.2);
+}
+
+.btnInstruction-popup.loading{
+    background-color: grey;
+    transform: scale(0.9);
+    opacity: 20%;
+    pointer-events: none;   /* ← disables pointer events */
+}
+
+/* This is the home page style. */
+.whole{
+    display: none;
+}
+
+/* This is the header */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+/* This is the sheep logo style */
+.logo{
+    width: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.sheepLogo{
+    width: 100px;
+    height: auto;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/* This is the navi bar contains the pause button */
+.navigation{
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:start;
+}
+
+.navigation img{
+    cursor: pointer;
+}
+
+/* This is the pause button */
+.pause{
+    width: 45px;
+    height: auto;
+    margin: 0;
+    border: 0;
+    padding: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* the size of the button will be adjusted based on the screen size */
+@media screen and (min-width: 600px) {
+    .pause  {
+        width: 70px; 
+    }
+}
+.pause:hover{
+    transform: rotate(360deg) scale(1.2);
+}
+
+/* The header will resize when I resize the window */
+@media screen and (max-width: 600px) {
+    .logo{
+        width: 150px; 
+    }
+    .title{
+        font-size: 1.2em;
+    }
+    .sheepLogo{
+        width:70px;
+    }
+}
+
+/* This is the tracker of the game on the top left corner*/
+.tracker{
+    width: 160px; 
+    height: auto; 
+    position: fixed;
+    left: 10px; 
+    top: 90px; 
+    z-index: 1;
+}
+
+h3{
+    font-size: 2em;
+}
+
+/* It will resize based on the screen size */
+@media screen and (max-width: 600px) {
+    .tracker{
+        right: -10px; 
+        top: 50px; 
+    }
+    h3{
+        font-size: 1em;
+    }
+}
+
+/* This is the pause game pop out  */
+
+.pauseGame.fade-in {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.pauseGame{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: block;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 6;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in;
+    pointer-events: none;
+}
+
+.pauseWarn{
+    font-size: 3rem;
+    align-self: center;
+    text-align: center;
+    color: #feeded;
+}
+.pausePop{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center; 
+    height: 100%;
+    
+}
+.pauseGame button{
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin: 10px;
+    width: 200px;
+    align-self: center;
+}
+.pauseGame button:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+.pauseGame button:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* This is the display board at the bottom of the page*/
+.displayBoard{
+    position:fixed;
+    margin: 10px;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    height: 150px;
+    max-height: 20%;
+    flex-wrap: wrap;
+    overflow: auto;
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+/* This is the displayed text */
+.displayedSheep{
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    font-size: 1.5em;
+}
+
+/* This is the style for finish game pop up*/
+#finishGame{
+    /* position: relative; */
+    position: absolute; 
+    top: calc((100vh - 440px) / 2 ); 
+    /* FIXME: ↑ After making the pause window always displayed and just 0% opacity, it moved the end-game menu down. */
+    /* This moves it back to the center, but assumes this window's height is allways 440px. Make it responcive again. kthxbai */
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(239, 239, 239, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+.done{ /* "Congratulations" */
+    font-size: 3rem;
+    align-self: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#score{ 
+    font-size: 2rem;
+    align-self: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.finish{ /* Contains `.done`, play again buttons, etc */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center; 
+    height: 100%;
+    
+}
+#finishGame button{
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin: 10px;
+    width: 200px;
+    align-self: center;
+}
+#finishGame button:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+#finishGame button:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* Styles for the game */
+/* 
+    3JS has 2 elements that it renders to: #game_canvas and #game_labels_canvas 
+    #game_canvas is a canvas element. It behaves like an img, and should full the screen, but it can be behind other elements. 
+    #game_labels_canvas is a div that holds the words drawn on the sheep. (Each sheep has its own div with its own word.) 
+        each lable inside #game_labels_canvas has the class .game_sheep_label. 
+*/
+
+#game {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: height 0.5s;
+}
+
+#game_canvas,
+#game_labels_canvas {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    animation: slideUpToView 2s ease-in-out forwards;
+}
+
+/* This is the game world slide up animation when user click on play game button */
+@keyframes slideUpToView {
+    from {
+      bottom: -100%;
+    }
+    to {
+      bottom: 0;
+    }
+}
+  
+/* Initially hide the canvas */
+#game_labels_canvas:not(.slide-up) {
+    display: none;
+}
+
+.game_sheep_label {
+    /* cursor: pointer; */
+    font-weight: 500;
+    font-size: 20pt;
+    color: black;
+    padding: 16px 16px 8px;
+    --shadow-color: rgba(255, 255, 255, 0.5);
+    text-shadow:
+        /* Glow/outline effect */
+        -1px 1px 2px var(--shadow-color),
+        1px 1px 2px var(--shadow-color),
+        1px -1px 2px var(--shadow-color),
+        -1px -1px 2px var(--shadow-color),
+        2px 2px 4px var(--shadow-color);
+
+}
+
+.game_colected_sheep_label {
+    padding: 0px 3px;
+    font-size: 12pt;
+    opacity: 50%;
+}
+
+.game_wolf_label {
+    color: red;
+}
+
+.game_winning_sheep_label {
+    padding: 0px 3px;
+    color: green;
+    opacity: 75%;
+}
+
+/* 
+    All sheep and wolf labels are .game_sheep_label 
+    Collected sheep are .game_sheep_label .game_colected_sheep_label
+    Wolves are .game_sheep_label .game_wolf_label
+    And wthe final end-game sheep have .game_sheep_label .game_colected_sheep_label .game_winning_sheep_label
+*/
+
+canvas{border:0px solid green;}
+  
+/* This is the confentti animation css */
+  .confetti {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    z-index: 50;
+  }
+  .confetti .rotate {
+    animation: driftyRotate 1s infinite both ease-in-out;
+    perspective: 1000;
+  }
+  .confetti .askew {
+    background: linear-gradient(
+    var(--grad-direction, to bottom),
+    hsl(63, 100%, 50%) 25%,
+    hsl(23, 100%, 50%) 0% 66.667%,
+    hsl(43, 100%, 100%) 0% 100%);
+    transform: skewY(10deg);
+    width: 2rem;
+    height: 3.2rem;
+    animation: drifty 1s infinite alternate both ease-in-out;
+    perspective:1000;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  }
+  
+  
+  .confetti:nth-of-type(7n) .askew {
+    animation-delay: -.6s;
+    animation-duration: 2.25s;
+  }
+  .confetti:nth-of-type(7n + 1) .askew {
+    animation-delay: -.879s;
+    animation-duration: 3.5s;
+  }
+  .confetti:nth-of-type(7n + 2) .askew {
+    animation-delay: -.11s;
+    animation-duration: 1.95s;
+  }
+  .confetti:nth-of-type(7n + 3) .askew {
+    animation-delay: -.246s;
+    animation-duration: .85s;
+  }
+  .confetti:nth-of-type(7n + 4) .askew {
+    animation-delay: -.43s;
+    animation-duration: 2.5s;
+  }
+  .confetti:nth-of-type(7n + 5) .askew {
+    animation-delay: -.56s;
+    animation-duration: 1.75s;
+  }
+  .confetti:nth-of-type(7n + 6) .askew {
+    animation-delay: -.76s;
+    animation-duration: 1.5s;
+  }
+    
+  .confetti:nth-of-type(9n) .rotate {
+    animation-duration: 2s;
+  }
+  .confetti:nth-of-type(9n + 1) .rotate {
+    animation-duration: 2.3s;
+  }
+  .confetti:nth-of-type(9n + 2) .rotate {
+    animation-duration: 1.1s;
+  }
+  .confetti:nth-of-type(9n + 3) .rotate {
+    animation-duration: .75s;
+  }
+  .confetti:nth-of-type(9n + 4) .rotate {
+    animation-duration: 4.3s;
+  }
+  .confetti:nth-of-type(9n + 5) .rotate {
+    animation-duration: 3.05s;
+  }
+  .confetti:nth-of-type(9n + 6) .rotate {
+    animation-duration: 2.76s;
+  }
+  .confetti:nth-of-type(9n + 7) .rotate {
+    animation-duration: 7.6s;
+  }
+  .confetti:nth-of-type(9n + 8) .rotate {
+    animation-duration: 1.78s;
+  }
+  
+  @keyframes drifty {
+    0% {
+      transform: skewY(10deg) translate3d(-250%, 0, 0);
+    }
+    100% {
+      transform: skewY(-12deg) translate3d(250%, 0, 0);
+    }
+  }
+  @keyframes driftyRotate {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(359deg);
+    }
+  }
+
+  .confetti:nth-child(4n + 1) {
+    color: hsl(183, 94%, 75%);
+  }
+.confetti:nth-child(4n + 2) {
+    color: hsl(43, 85%, 75%);
+  }
+.confetti:nth-child(4n + 3) {
+    color: hsl(133, 45%, 74%);
+  }
+
+  .confetti .askew {
+    background: currentColor;
+    width: 1rem;
+    height: 2rem;
+    clip-path: polygon(evenodd,
+    0% 0%, 100% 0%, 100% 100%, 50% 90%, 0% 100%
+    );
+  }
