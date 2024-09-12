@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheep and Shepherd Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="welcome.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body>
+    <div class="whole" id="vanta">
+        <!-- This is the header -->
+        <header>
+            <div class="logo">
+                <img class="sheepLogo" src="public/sheep.PNG" alt="sheep-logo" />
+            </div>
+            <nav class="navigation">
+                <img class="pause" src="public/pauseicon.png" alt="pauseIcon" />
+                <img class="setting" src="public/settingicon.png" alt="settingIcon"/>
+                <img class="exit" src="public/exiticon.png" alt="exitIcon" />
+            </nav>
+        </header>
+
+        <!-- Moving music note at the bottom right corner -->
+        <div class="music">
+            <img class="musicNote" src="public/musicicon.png" alt="musicNote" />
+        </div>
+
+        <!-- Keep track of the game progress -->
+        <div id="tracker" class="tracker">
+            <h3 id="score">Score:</h3>
+            <h3 id="counter">Counter:</h3>
+            <h3 id="timer">Timer:</h3>
+        </div>
+
+        <!-- This is the pauseGame pop out -->
+        <div class="pauseGame" style="display: none;">
+            <div class="pausePop">
+                <h2 class="pauseWarn">Game has been Paused</h2>
+                <button class="return" >Return to Game</button>
+                <button class="exitGame">Quit and Exit the Game</button>
+            </div>
+        </div>
+
+        <!-- This is the setting pop out -->
+        <div class="whiteBoard hidden">
+            <img class="exit1" src="public/exiticon.png" alt="exitIcon" />
+            <div class="whiteBoard-content">
+                <button class="bunch musicControl" >Music</button>
+                <button class="bunch sound" >Sound</button>
+                <button class="bunch difficulty" >Difficulty Level</button>
+                <button class="bunch languages" >Languages</button>
+                <button class="bunch credits" >Credits</button>
+                <button class="bunch legal" >Legal</button>
+                <button class="bunch customer">Customer Servive</button>
+            </div>
+        </div>
+
+        <!-- This is the exit game pop out -->
+        <div class="exitingGame" style="display: none;">
+            <div class="warning">
+                <h2 class="warn">Do you want to exit the game?</h2>
+                <button class="return">Return to Game</button>
+                <button class="exitGame" >Quit and Exit the Game</button>
+            </div>
+        </div>
+
+        <!-- This is the Game interface -->
+        <div id="game">
+            <canvas id="game_canvas"></canvas>
+            <div id="game_lables_canvas"></div>
+        </div>
+
+        <!-- This is the verse display board at the bottom of the page -->
+        <div class="displayBoard"></div>
+    </div>
+    
+    <!-- This is the instruction page, user will see this page first -->
+    <div class="instruction">
+        <div class="popIns">
+            <h2 class="welcomeText">Welcome to the Sheep and Shepherd Game!</h2>
+            <br>
+            <h3 class="ins">To win this game, you need to find all the lost sheep that has the word of the verse on
+                them, find the word in order.</h3>
+            <br>
+            <h3 class="fun">Now! Help the shepherd to find all his lost sheep!</h3>
+            <br>
+            <button class="btnInstruction-popup" >Play Game</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
