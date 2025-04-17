@@ -1,0 +1,587 @@
+  /* CSS goes here */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-y: hidden;
+    background-color: #B8DBD8;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    /* overflow-x: auto;
+    white-space: nowrap; */
+}
+
+.content-wrapper {
+    width: 100vw;
+    white-space: nowrap;
+}
+.section {
+    width: 100vw;
+    min-height: 100vh;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.text{
+    font-size: 150px;
+    color:black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.menu {
+    width: 10vw;
+    height: 300vh;
+    display: inline-block;
+    position: absolute;
+    background-color: #E66025;
+    position:absolute;
+    top: -230px;
+}
+
+.gallery {
+    width: 35vw;
+    height: 100vh;
+    display: inline-block;
+    left: 60%;
+    position:absolute;
+    top: 0;
+}
+.gallery.two {
+    background-color: #FFF4CA;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the images */
+    justify-content: space-around; /* Distribute space around the images */
+    gap: 70px; /* Add gap between images */
+    overflow: hidden;
+}
+
+.gallery.two img{
+    width: 70%;
+    height: auto;
+    width: 80%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio of the images */
+    border: 15px solid #9ad49d; 
+    /* transition: slideUp 1s ease-in-out infinite 0s; */
+}
+
+.gallery.three {
+    background-color: #CABBD5;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the images */
+    justify-content: space-around; /* Distribute space around the images */
+    gap: 70px; /* Add gap between images */
+}
+
+.gallery.three img{
+    width: 70%;
+    height: auto;
+    width: 80%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio of the images */
+    border: 15px solid #f0dbad; 
+}
+
+.gallery.four {
+    background-color: #ECAF7A;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the images */
+    justify-content: space-around; /* Distribute space around the images */
+    gap: 70px; /* Add gap between images */
+}
+
+.gallery.four img{
+    width: 70%;
+    height: auto;
+    width: 80%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio of the images */
+    border: 15px solid #abd1fc; 
+}
+
+.gallery.five {
+    background-color: #FFF4CA;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the images */
+    justify-content: space-around; /* Distribute space around the images */
+    gap: 70px; /* Add gap between images */
+}
+
+.gallery.five img{
+    width: 70%;
+    height: auto;
+    width: 80%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio of the images */
+    border: 15px solid #eebee1; 
+
+}
+
+.gallery.six {
+    background-color: #B4C58E;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the images */
+    justify-content: space-around; /* Distribute space around the images */
+    gap: 70px; /* Add gap between images */
+}
+
+.gallery.six img{
+    width: 70%;
+    height: auto;
+    width: 80%; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain the aspect ratio of the images */
+    border: 15px solid #faffc0; 
+
+}
+
+.cloud-sun{
+    position:absolute;
+    top: -30vh;
+    left: -8vw;
+    width: 88vw;
+    height: 130vh;
+}
+.all-things{
+    position:absolute;
+    top: -55.6vh;
+    left: 52vw;
+    width: 74vw;
+    height: 127.5vh;
+}
+
+.little-girl {
+    position: absolute;
+    top: 18.8vh;
+    left: 60vw;
+    width: 40vw;
+    height: 76.5vh;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Example shadow */
+}
+
+.beginText{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    position:absolute;
+    top: 57vh;
+    left: 38vw;
+}
+@media (max-width: 1300px) {
+    .beginText {
+        font-size: 17px; /* Adjust the font size for smaller screens */
+    }
+}
+
+/* Adjust font size for even smaller screens */
+@media (max-width: 1000px) {
+    .beginText {
+        font-size: 8px; /* Further adjust the font size for very small screens */
+    }
+}
+
+/* CSS for artists' picture */
+.ericHead{
+    width: 20vw;
+    height: 50vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.ericHead.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.shelHead{
+    width: 20vw;
+    height: 50vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.shelHead.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.beatrixHead{
+    width: 20vw;
+    height: 50vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.beatrixHead.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.donHead{
+    width: 20vw;
+    height: 50vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.donHead.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.talithaHead{
+    width: 20vw;
+    height: 50vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.talithaHead.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* CSS for artists' name. */
+#ericName{
+    width: 130vw;
+    height: 80vh;
+    position: absolute;
+    top: 25vh;
+    left: -40vw;
+}
+
+#shelName{
+    width: 130vw;
+    height: 80vh;
+    position: absolute;
+    top: 25vh;
+    left: -40vw;
+}
+
+#beaName{
+    width: 130vw;
+    height: 80vh;
+    position: absolute;
+    top: 25vh;
+    left: -39vw;
+}
+
+#donName{
+    width: 130vw;
+    height: 80vh;
+    position: absolute;
+    top: 25vh;
+    left: -40vw;
+}
+
+#talName{
+    width: 130vw;
+    height: 80vh;
+    position: absolute;
+    top: 25vh;
+    left: -42vw;
+}
+
+ /* CSS for butterfly  cursor */
+#butterflyCursor{
+    position: absolute;
+    pointer-events: none; /* Ensures it doesn't interfere with other mouse events */
+    z-index: 1000; /* Ensures it's on top of other elements */
+    width: 250px; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    display: none; /* Initially hidden */
+}
+
+/* CSS for the green grass */
+#grass1 {
+    width: 175vw;   /* Increase to 120% of the viewport width */
+    height: 150vh;  /* Increase to 110% of the viewport height */
+    position: absolute;
+    top: 20vh;      /* This may need adjustment */
+    left: -30vw;
+    z-index: -100;
+}
+  
+#grass2{
+  width: 200vw;
+  height: 180vh;
+  position: absolute;
+  top:  5vh;
+  left: -50vw;
+  z-index: -100;
+}
+
+/* CSS for the sun animation */
+.st00{
+    transform-origin: bottom left; 
+    opacity: 20;
+    animation: sun_anim 2s ease-in-out infinite;
+}
+
+@keyframes sun_anim {
+    0% {
+        opacity: 20;
+        transform: translateX(0px) translateY(0px) scale(1,1);
+    }
+    50% {
+        opacity: 100;
+        transform: translateX(-150px) translateY(150px) scale(1.25,1.25);
+    }
+    100% {
+        opacity: 25;
+        transform: translateX(0px) translateY(0px) scale(1,1);
+    }
+}
+
+.description{
+    top: 70vh;
+    left: 8vw;
+    position:absolute;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 1300px) {
+    .description {
+        font-size: 15px; /* Adjust the font size for smaller screens */
+    }
+}
+
+/* Adjust font size for even smaller screens */
+@media (max-width: 1000px) {
+    .description {
+        font-size: 12px; /* Further adjust the font size for very small screens */
+    }
+}
+
+/* imgae slide! */
+.image-slide1 {
+    position: absolute;
+    bottom: -100%; /* Start below the screen */
+    width: 100%;
+    /* Add transitions for smooth sliding */
+    transition: bottom 2s;
+}
+
+.image-slide1{
+    /* Other styling */
+    opacity: 0; /* Hide initially */
+    transition: bottom 2s, opacity 2s; /* Add transition for opacity */
+}
+
+.image-slide1.show {
+    opacity: 1; /* Show when this class is added */
+}
+
+.image-slide1:hover {
+    transform: scale(1.1); /* Scale up the image */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+.image-slide2 {
+    position: absolute;
+    bottom: -100%; /* Start below the screen */
+    width: 100%;
+    /* Add transitions for smooth sliding */
+    transition: bottom 2s;
+}
+
+.image-slide2{
+    /* Other styling */
+    opacity: 0; /* Hide initially */
+    transition: bottom 2s, opacity 2s; /* Add transition for opacity */
+}
+
+.image-slide2.show {
+    opacity: 1; /* Show when this class is added */
+}
+
+.image-slide2:hover {
+    transform: scale(1.1); /* Scale up the image */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+.image-slide3 {
+    position: absolute;
+    bottom: -100%; /* Start below the screen */
+    width: 100%;
+    /* Add transitions for smooth sliding */
+    transition: bottom 2s;
+}
+
+.image-slide3{
+    /* Other styling */
+    opacity: 0; /* Hide initially */
+    transition: bottom 2s, opacity 2s; /* Add transition for opacity */
+}
+
+.image-slide3.show {
+    opacity: 1; /* Show when this class is added */
+}
+
+.image-slide3:hover {
+    transform: scale(1.1); /* Scale up the image */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+.image-slide4 {
+    position: absolute;
+    bottom: -100%; /* Start below the screen */
+    width: 100%;
+    /* Add transitions for smooth sliding */
+    transition: bottom 2s;
+}
+
+.image-slide4{
+    /* Other styling */
+    opacity: 0; /* Hide initially */
+    transition: bottom 2s, opacity 2s; /* Add transition for opacity */
+}
+
+.image-slide4.show {
+    opacity: 1; /* Show when this class is added */
+}
+
+.image-slide4:hover {
+    transform: scale(1.1); /* Scale up the image */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+.image-slide5 {
+    position: absolute;
+    bottom: -100%; /* Start below the screen */
+    width: 100%;
+    /* Add transitions for smooth sliding */
+    transition: bottom 2s;
+}
+
+.image-slide5{
+    /* Other styling */
+    opacity: 0; /* Hide initially */
+    transition: bottom 2s, opacity 2s; /* Add transition for opacity */
+}
+
+.image-slide5.show {
+    opacity: 1; /* Show when this class is added */
+}
+
+.image-slide5:hover {
+    transform: scale(1.1); /* Scale up the image */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+@keyframes waveAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Example transformation */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* path animation */
+.path-animation {
+    opacity: 0; /* Start with the path invisible */
+    animation: waveAnimation 5s forwards infinite; /* Animation duration and fill mode */
+}
+
+/* audio css */
+#audio{
+    position: absolute;
+    top:  0px;
+    left: 100px;
+    z-index: 1000;
+}
+
+/* here's the chicken */
+.animation-container {
+    position: relative;
+    width: 15px; /* Adjust based on your image size */
+    height: 15px; /* Adjust based on your image size */
+}
+
+.chicken {
+    position: absolute;
+    top: 82vh;
+    left: -10vw;
+    width: 10vw;
+    height: 15vh;
+}
+
+/* this is the flower */
+.flower1{
+    position: absolute;
+    top: 80vh;
+    left: 5vw;
+    width: 15vw;
+    height: 20vh;
+}
+
+.flower2{
+    position: absolute;
+    top: 82vh;
+    left: 40vw;
+    width: 10vw;
+    height: 15vh;
+}
+
+/* this is the cloud */
+.cloud1{
+    position: absolute;
+    top: -30vh;
+    left: -25vh;
+    width: 120vw;
+    height: 100vh;
+    z-index: -100;
+    animation: upDown 2s ease-in-out infinite; /* Animation duration and fill mode */
+}
+
+@keyframes upDown {
+    0% {
+        opacity: 0.3;
+        transform: translateY(0px); 
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-40px); 
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+}
