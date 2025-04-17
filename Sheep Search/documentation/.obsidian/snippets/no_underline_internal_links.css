@@ -1,0 +1,11 @@
+/*
+Obsidian doesn't correctly export internal links in a PDF.
+This CSS removes the underline for internal links, but only
+in the PDF export so that you can tell the difference between
+working external links, and broken internal links. 
+*/
+@media print {
+    .markdown-rendered .internal-link {
+    text-decoration: none !important;
+  }
+}
