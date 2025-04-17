@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ↓ Tells phones it's OK to hide browser chrome for this app when installed to the homescreen. -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <title>Sheep and Shepherd Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="welcome.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body>
+
+    <!-- Besides the instruction div and cloud background, the rest of the div are under the whole div class, which will be controlled in welcome.js file -->
+    <div class="whole" id="whole">
+        <!-- This is the header -->
+        <header>
+            <!-- This is the logo -->
+            <div class="logo">
+                <img class="sheepLogo" src="sheep.PNG" alt="sheep-logo" />
+            </div>
+            <!-- This is the navigation bar that contains the pause button -->
+            <nav class="navigation">
+                <!-- This the the pause button on the top right corner -->
+                <img class="pause" src="pauseicon.png" alt="pauseIcon" />
+            </nav>
+        </header>
+
+        <!-- Keep track of the game progress on the top left corner-->
+        <div id="tracker" class="tracker">
+            <h3 id="counter">Sheep:</h3>
+            <h3 id="timer">Timer:</h3>
+        </div>
+
+        <!-- This is the pauseGame pop out -->
+        <div class="pauseGame" >
+            <div class="pausePop">
+                <h2 class="pauseWarn">Game has been Paused</h2>
+                <button class="return" >Return to Game</button>
+                <button class="musicControl" >Music</button>
+                <button class="sound" >Sound</button>
+                <button class="exitGame">Quit and Exit the Game</button>
+            </div>
+        </div>
+
+        <!-- This is the Game interface -->
+        <div id="game">
+            <canvas id="game_canvas"></canvas>
+            <div id="game_labels_canvas"></div>
+        </div>
+
+        <!-- This is the verse display board at the bottom of the page -->
+        <div class="displayBoard"></div>
+
+        <!-- This is the end game pop up, it will show up when the user finish the game -->
+        <div id="finishGame" style="display: none;">
+            <div class="finish">
+                <h2 class="done">Congratulations!</h2>
+                <h3 id="score">Score:</h3>
+                <button class="replay">Play Again</button>
+                <button class="playSheep" >Play with the sheep</button>
+                <button class="exitGame">Exit The Game</button>
+            </div>
+        </div>
+
+        <!-- This the end game animation - confetti-->
+        <div class="confetti-land" id ="confetti-l" style="display: none;">
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+          </div>
+    </div>
+    
+    <!-- This is the instruction page, user will see this page first -->
+    <div class="instruction">
+        <div class="popIns">
+            <h2 class="welcomeText">Sheep and Shepherd!</h2>
+            <br>
+            <h3 class="ins">Oh No! A wolf scared all your sheep away! You need to find them all, but be careful: The wolves will try to trick you. <br>Your sheep will have the words to your memory verse on them.</h3>
+            <br>
+            <h3 class="fun">Can you find all your lost sheep?</h3>
+            <br>
+            <!-- This is the play game button -->
+            <button class="btnInstruction-popup loading" >Loading…</button>
+        </div>
+    </div>
+
+    <!-- This is the cloud background slider -->
+    <div class="slider-background">
+        <div class="slider">
+            <img src="cloud1.png" style="--i:1">
+            <img src="cloud2.png" style="--i:2">
+            <img src="cloud3.png" style="--i:3">
+            <img src="cloud4.png" style="--i:4">
+        </div>
+    </div>
+
+</body>
+
+</html>
